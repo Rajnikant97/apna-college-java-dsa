@@ -5,6 +5,28 @@ public class TrappingRainwater {
         int[] arr = {4,2,0,3,3,2,6};
         solveBruteForce(arr);
         solveAuxArray(arr);
+        solve(arr);
+    }
+
+    public static void solve(int[] arr) {
+        int l = 0;
+        int r = arr.length - 1;
+        int leftMax = arr[l];
+        int rightMax = arr[r];
+        int trappedWater = 0;
+
+        while(l < r) {
+            if(leftMax < rightMax) {
+                l++;
+                leftMax = Math.max(leftMax, arr[l]);
+                trappedWater += leftMax - arr[l];
+            } else {
+                r--;
+                rightMax = Math.max(rightMax, arr[r]);
+                trappedWater += rightMax - arr[r];
+            }
+        }
+        System.out.println("trappedWater = " + trappedWater);
     }
 
     public static void solveAuxArray(int[] arr) {
