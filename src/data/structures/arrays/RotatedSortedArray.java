@@ -38,7 +38,7 @@ public class RotatedSortedArray {
     public static int findMin(int[] arr) {
         int left = 0;
         int right = arr.length-1;
-        if(arr[left] < arr[right]) {
+        if(arr[left] < arr[right] || left == right) {
             return 0;
         }
 
